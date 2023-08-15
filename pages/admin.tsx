@@ -11,7 +11,6 @@ import useSWR from 'swr';
 import { useState } from 'react';
 import { Select } from '@chakra-ui/react';
 import Navbar from '../components/common/Navbar';
-import Banner from '../components/common/Banner';
 import AdminTable from '../components/admin/AdminTable';
 import Loading from '../components/common/Loading';
 // import LeaderTable from '../components/leaderboard/LeaderTable';
@@ -36,7 +35,6 @@ export default function Home() {
 
   return (
     <div className="h-full py-10">
-      <Banner />
       <div className="flex justify-center mx-4 mt-8 md:mt-24">
         <div className="w-screen sm:w-auto">
           <div className="flex justify-center mb-6 2xl:w-[500px]">

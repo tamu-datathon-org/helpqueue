@@ -55,10 +55,8 @@ export default async function handler(
     data: {
       claimantName: null,
       claimedTime: null,
+      claimantId: null,
       publishTime: new Date(),
-      claimant: {
-        disconnect: true,
-      },
     },
   });
 

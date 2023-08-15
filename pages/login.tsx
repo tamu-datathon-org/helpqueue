@@ -22,7 +22,6 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 export default function Login() {
   return (
     <>
-      <Banner />
       <Landing />
     </>
   );

@@ -56,11 +56,7 @@ export default async function handler(
     data: {
       claimantName: user.name,
       claimedTime: new Date(),
-      claimant: {
-        connect: {
-          id: user.id,
-        },
-      },
+      claimantId: user.id,
     },
   });
 

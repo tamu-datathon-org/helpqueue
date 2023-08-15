@@ -1,6 +1,6 @@
 // schema.prisma
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
@@ -11,7 +11,7 @@ generator client {
 }
 
 model Ticket {
-  id        String  @id @default(cuid())
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
   authorName      String
   issue     String
   location  String
@@ -27,7 +27,7 @@ model Ticket {
 }
 
 model ResolvedTicket {
-  id        String  @id @default(cuid())
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
   authorName      String
   issue     String
   location  String
@@ -41,7 +41,7 @@ model ResolvedTicket {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
+  id                 String  @id @default(auto()) @map("_id") @db.ObjectId
   userId             String  @map("user_id")
   type               String
   provider           String
@@ -62,7 +62,7 @@ model Account {
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   sessionToken String   @unique @map("session_token")
   userId       String   @map("user_id")
   expires      DateTime
@@ -70,7 +70,7 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String
   email         String   @unique
   emailVerified DateTime?
@@ -85,7 +85,7 @@ model User {
 }
 
 model VerificationToken {
-  id         Int      @id @default(autoincrement())
+  id         String      @id @default(auto()) @map("_id") @db.ObjectId
   identifier String
   token      String   @unique
   expires    DateTime

@@ -83,5 +83,18 @@ export default async function handler(
     },
   });
 
+  await prisma.ticket.update({
+    where: {
+      id: ticket.id,
+    },
+    data: {
+      claimantName: null,
+      claimedTime: null,
+      claimantId: null,
+      resolvedTime: null,
+      publishTime: new Date(),
+    },
+  });
+
   res.status(200).send({ ticket: ticket });
 }

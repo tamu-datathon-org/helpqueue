@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import { MoonLoader } from 'react-spinners';
-import Banner from './Banner';
 
 export default function LoadingDark() {
   const [refreshVisible, setRefreshVisible] = useState(false);
@@ -15,7 +14,6 @@ export default function LoadingDark() {
 
   return (
     <div>
-      <Banner />
       <div className="fixed h-full w-screen top-0 left-0 transition-all bg-black bg-opacity-80">
         <div className="flex flex-col h-screen justify-center">
           <div className="flex justify-center">

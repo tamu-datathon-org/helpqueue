@@ -25,9 +25,6 @@ export default async function handler(
     orderBy: {
       publishTime: 'desc',
     },
-    include: {
-        claimant: true,
-    },
   });
 
   res.status(200).send({ tickets: tickets });

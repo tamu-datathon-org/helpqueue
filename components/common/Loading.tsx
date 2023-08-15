@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import Banner from './Banner';
 import { MoonLoader } from 'react-spinners';
 
 export default function Loading() {
@@ -14,7 +13,6 @@ export default function Loading() {
 
   return (
     <div>
-      <Banner />
       <div className="h-screen flex justify-center items-center">
         <div>
           <div className="flex justify-center">
