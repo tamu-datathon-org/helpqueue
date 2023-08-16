@@ -1,4 +1,3 @@
-import Banner from '../components/common/Banner';
 import Landing from '../components/Landing/Landing';
 import { GetServerSidePropsContext } from 'next';
 import { getSession } from 'next-auth/react';

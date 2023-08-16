@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { GetServerSideProps } from 'next';
 import React, { useState } from 'react';
 
-import Banner from '../components/common/Banner';
 import Navbar from '../components/common/Navbar';
 import { Select } from '@chakra-ui/react';
 

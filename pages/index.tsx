@@ -4,7 +4,6 @@ import { GetServerSideProps } from 'next';
 import useSWR from 'swr';
 import { fetcher } from '../lib/common';
 
-import Banner from '../components/common/Banner';
 import Navbar from '../components/common/Navbar';
 import Submit from '../components/home/Submit';
 
@@ -34,7 +33,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-full py-10">
-        <Banner />
         <div className="flex justify-center mt-8 md:mt-24">
           <div className="w-screen sm:w-auto">
             <div className="flex justify-center mx-4 mb-6 w-[90vw] lg:w-[35vw] 2xl:w-[500px]">
