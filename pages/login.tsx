@@ -5,6 +5,14 @@ import { getSession } from 'next-auth/react';
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   const session = await getSession(ctx);
   if (session) {
+    if(process.env.NODE_ENV === 'production') {
+      return {
+        redirect: {
+          destination: '/help',
+          permanent: false,
+        },
+      };
+    }
     return {
       redirect: {
         destination: '/',

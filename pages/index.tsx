@@ -56,6 +56,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
 
   if (!session) {
+    if(process.env.NODE_ENV === 'production') {
+      return {
+        redirect: {
+          destination: '/help/login',
+          permanent: false,
+        },
+      };
+    }
     return {
       redirect: {
         destination: '/login',
