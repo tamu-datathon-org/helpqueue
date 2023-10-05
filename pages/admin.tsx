@@ -22,7 +22,7 @@ ADMIN VIEW:
 */
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR('/api/users/all', fetcher, {});
+  const { data, error, isLoading } = useSWR('/help/api/users/all', fetcher, {});
   const [adminView, setAdminView] = useState('userTable');
 
   if (isLoading || error) {
@@ -64,14 +64,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   );
 
   if (!session) {
-    if(process.env.NODE_ENV === 'production') {
-      return {
-        redirect: {
-          destination: '/help/login',
-          permanent: false,
-        },
-      };
-    }
     return {
       redirect: {
         destination: '/login',
@@ -88,14 +80,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   
   if (!user?.admin) {
-    if(process.env.NODE_ENV === 'production') {
-      return {
-        redirect: {
-          destination: '/help',
-          permanent: false,
-        },
-      };
-    }
     return {
       redirect: {
         destination: '/',
