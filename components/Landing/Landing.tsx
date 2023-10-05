@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "next/image";
+// import Image from "next/image";
 import CSS from "csstype";
 import {signIn} from "next-auth/react";
 
@@ -13,7 +13,7 @@ export default function Landing() {
   return (<div className="md:items-center h-screen flex justify-center" style={backgroundProps}>
     <div className="welcomem mt-48 md:mt-0">
       <p className="text-center relative bottom-[20px] font-bold text-4xl sm:text-[65px] pb-6">
-        Welcome to Datathon's Help Queue!
+        Welcome to Datathon&apos;s Help Queue!
       </p>
       <p className="text-center font-medium pb-8 text-lg sm:text-2xl">
         Your go-to destination for assistance and inquiries.
