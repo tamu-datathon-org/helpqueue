@@ -31,7 +31,7 @@ export default function Home() {
           content="Online Mentorship Queue For Hackathon Participants"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="https://tamudatathon.com/static/img/favicons/favicon.ico" />
       </Head>
       <div className="h-full py-10">
         <div className="flex justify-center mt-8 mx-4 md:mt-24">
