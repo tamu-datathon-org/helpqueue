@@ -33,8 +33,7 @@ export default function TicketStream(props : {
           {ticket.issue}
         </h5>
         <p className="mt-2 text-sm">
-          {ticket.authorName}
-          (Contact: {ticket.contact})
+          {ticket.authorName}&nbsp;(Contact: {ticket.contact})
         </p>
         <p className="mt-2 text-sm">Located at: {ticket.location}</p>
       </div>
