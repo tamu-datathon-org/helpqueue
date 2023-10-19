@@ -124,7 +124,7 @@ export default function Submit(props : {
       </p>
       <p className="text-md text-gray-600">
         {
-          data.user.ticket.claimantId
+          data.user.ticket.claimantId && !data.user.ticket.claimantId.startsWith("TEMP_")
             ? `A mentor has claimed your ticket and is on their way!`
             : "Your ticket is currently in the queue. A mentor will arrive shortly!"
         }

@@ -43,7 +43,7 @@ export default async function handler(
     return;
   }
 
-  if (user.claimedTicket || ticket.claimantId) {
+  if (user.claimedTicket || (ticket.claimantId && !ticket.claimantId.startsWith('TEMP_')) ) {
     res.status(400);
     res.send({ ticket: null });
     return;

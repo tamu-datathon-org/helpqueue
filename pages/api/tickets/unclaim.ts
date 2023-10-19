@@ -5,6 +5,11 @@ import prisma from '../../../lib/prisma';
 import { Ticket } from '@prisma/client';
 import { getToken } from 'next-auth/jwt';
 
+// Function to generate a unique temporary string
+function generateTempString(): string {
+    return `TEMP_${Date.now()}`;
+}
+
 /*
  * POST Request: Unclaims ticket
  */
@@ -55,7 +60,7 @@ export default async function handler(
     data: {
       claimantName: null,
       claimedTime: null,
-      claimantId: null,
+      claimantId: generateTempString(),
       publishTime: new Date(),
     },
   });

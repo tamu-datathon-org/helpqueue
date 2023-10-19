@@ -13,6 +13,11 @@ type ResponseData = {
   error?: string;
 };
 
+// Function to generate a unique temporary string
+function generateTempString(): string {
+    return `TEMP_${Date.now()}`;
+}
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
@@ -43,9 +48,18 @@ export default async function handler(
     return;
   }
 
-  if (!issue || !location || !contact) {
-    res.status(405).json({ error: 'Missing fields' });
+  if (!issue) {
+    res.status(405).json({ error: 'Missing issue' });
     return;
+  }
+
+
+  if(!location) {
+    res.status(405).json({ error: 'Missing location' });
+  }
+
+  if(!contact) {
+    res.status(405).json({ error: 'Missing contact' });
   }
 
   if (issue.length > maxIssueLength) {
@@ -90,7 +104,7 @@ export default async function handler(
     data: {
       claimantName: null,
       claimedTime: null,
-      claimantId: null,
+      claimantId: generateTempString(),
       resolvedTime: null,
       publishTime: new Date(),
     },

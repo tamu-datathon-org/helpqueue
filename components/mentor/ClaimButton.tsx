@@ -62,7 +62,7 @@ export default function ClaimButton(props : {
     </div>);
   }
 
-  if (!unclaimLoading && (claimLoading || (props.ticket.claimantId && props.ticket.claimantId == data.user.id))) {
+  if (!unclaimLoading && (claimLoading || (props.ticket.claimantId && !props.ticket.claimantId.startsWith("TEMP_") && props.ticket.claimantId == data.user.id))) {
     return (<div className="flex justify-between items-center mt-6">
       {/* {loading && <Loading />} */}
       <a className={`${
@@ -80,7 +80,7 @@ export default function ClaimButton(props : {
     </div>);
   }
 
-  if (props.ticket.claimantId && !unclaimLoading) {
+  if (props.ticket.claimantId && !props.ticket.claimantId.startsWith("TEMP_") && !unclaimLoading) {
     return (<div className="flex justify-center mt-6">
       <a className="w-full text-center py-2 bg-gray-400 rounded-lg text-md font-bold text-white">
         Claimed by {props.ticket.claimantName}
