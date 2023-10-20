@@ -20,7 +20,7 @@ export default function Navbar(props : NavProps) {
   if (!data.user || !props.page) {
     return (<div className="flex justify-between w-full">
       <div className="flex"></div>
-      <div onClick={() => signOut({callbackUrl: "/login"})} className="p-8 border h-12 w-12 bg-white border-gray-100 rounded-xl shadow-md">
+      <div onClick={() => signOut({callbackUrl: "/login"})} className="p-8 border h-12 w-12 bg-white border-gray-100 rounded-xl shadow-md" style={{cursor: "pointer"}}>
         <IoLogOutOutline className="scale-[1.75] -translate-y-2/4 -translate-x-1/3"/>
       </div>
     </div>);
