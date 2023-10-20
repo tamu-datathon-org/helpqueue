@@ -17,11 +17,5 @@ export async function getServerSideProps(ctx : GetServerSidePropsContext) {
 }
 
 export default function Login() {
-  return (<> {
-    " "
-  } < head > {
-    " "
-  } < link rel = "icon" href = "https://tamudatathon.com/static/img/favicons/favicon.ico" /> </head>
-<Landing/>
-</>);
+  return (<> <Landing/> </>);
 }

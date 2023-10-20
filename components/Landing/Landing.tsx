@@ -24,11 +24,5 @@ export default function Landing() {
         </a>
       </div>
     </div>
-    {/* <div className="absolute flex justify-center bottom-8 w-full text-center">
-      <a href="https://tamuhack.com" target="_blank" rel="noopener noreferrer">
-        <Image src="/images/tamuhack.png" alt="cloudy background" width={100} height={100}/>
-      </a>
-    </div> */
-    }
   </div>);
 }
