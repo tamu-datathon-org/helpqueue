@@ -33,7 +33,7 @@ export default function TicketStream(props: {
     );
   }
 
-  const filteredTickets = ticketsData.tickets.filter((ticket) => {
+  const filteredTickets = ticketsData.tickets.filter((ticket: Ticket) => {
     if (
       props.challengeFilter === 'All Challenges' ||
       props.challengeFilter === ticket.challenge
