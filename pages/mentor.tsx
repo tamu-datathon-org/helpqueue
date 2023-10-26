@@ -14,12 +14,20 @@ import TicketStream from '../components/tickets/TicketStream';
 
 export default function Home() {
   const [filter, setFilter] = useState('');
-
+  const [challengeFilter, setChallengeFilter] = useState('All Challenges');
+  const challengeOptions = ['Challenge A', 'Challenge B', 'Challenge C'];
   const handleDropdownChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
     const value = event.target.value;
     setFilter(value);
+  };
+
+  const handleDropdownChange2 = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const value = event.target.value;
+    setChallengeFilter(value);
   };
 
   return (
@@ -31,7 +39,10 @@ export default function Home() {
           content="Online Mentorship Queue For Hackathon Participants"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="https://tamudatathon.com/static/img/favicons/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://tamudatathon.com/static/img/favicons/favicon.ico"
+        />
       </Head>
       <div className="h-full py-10">
         <div className="flex justify-center mt-8 mx-4 md:mt-24">
@@ -49,7 +60,18 @@ export default function Home() {
                 <option value="resolved">Resolved Tickets</option>
               </Select>
             </div>
-            <TicketStream filter={filter} />
+            <div className="mt-8 w-[90vw] lg:w-[35vw] 2xl:w-[500px]">
+              <Select onChange={handleDropdownChange2} bg="white">
+                <option value="All Challenges">All Challenges</option>
+                {challengeOptions.map((option, index) => (
+                  <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </Select>
+            </div>
+
+            <TicketStream filter={filter} challengeFilter={challengeFilter} />
           </div>
         </div>
       </div>
