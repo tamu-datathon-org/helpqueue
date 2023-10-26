@@ -15,7 +15,7 @@ type ResponseData = {
 
 // Function to generate a unique temporary string
 function generateTempString(): string {
-    return `TEMP_${Date.now()}`;
+  return `TEMP_${Date.now()}`;
 }
 
 export default async function handler(
@@ -23,7 +23,7 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   const token = await getToken({ req });
-  const { issue, location, contact } = req.body;
+  const { challenge, issue, location, contact } = req.body;
   const maxIssueLength = 80;
   const maxLocationLength = 60;
   const maxContactLength = 20;
@@ -53,12 +53,11 @@ export default async function handler(
     return;
   }
 
-
-  if(!location) {
+  if (!location) {
     res.status(405).json({ error: 'Missing location' });
   }
 
-  if(!contact) {
+  if (!contact) {
     res.status(405).json({ error: 'Missing contact' });
   }
 
@@ -86,6 +85,7 @@ export default async function handler(
   const ticket = await prisma.ticket.create({
     data: {
       authorName: user.name,
+      challenge: challenge,
       issue: issue,
       location: location,
       contact: contact,
