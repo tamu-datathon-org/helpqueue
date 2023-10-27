@@ -15,7 +15,7 @@ import TicketStream from '../components/tickets/TicketStream';
 export default function Home() {
   const [filter, setFilter] = useState('');
   const [challengeFilter, setChallengeFilter] = useState('All Challenges');
-  const challengeOptions = ['Challenge A', 'Challenge B', 'Challenge C'];
+  const challengeOptions = ['TD Hospital Exploration', 'TD Pictionary Purge', 'TD Bots Race', 'TD Build Your Own', 'Miscellaneous'];
   const handleDropdownChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {

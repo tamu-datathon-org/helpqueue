@@ -14,7 +14,7 @@ generator client {
 model Ticket {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   authorName      String
-  challenge String @default("Challenge A")
+  challenge String @default("Miscellaneous")
   issue     String
   location  String
   contact   String
@@ -31,7 +31,7 @@ model Ticket {
 model ResolvedTicket {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
   authorName      String
-  challenge String @default("Challenge A")
+  challenge String @default("Miscellaneous")
   issue     String
   location  String
   contact   String
