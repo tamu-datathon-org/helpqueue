@@ -42,8 +42,8 @@ export default function InfoModal() {
           <ModalCloseButton />
           <ModalBody>
             <p className="text-gray-700">
-                This is Datathons help queue! If you need help during the event, please use this and a mentor
-                will assist you shortly! This project used TAMUHacks HelpR as a base.
+                This is Datathon&apos;s help queue! If you need help during the event, please use this and a mentor
+                will assist you shortly! This project used TAMUHack&apos;s HelpR as a base.
             </p>
             <p className="my-4 text-gray-700">
               This Help Queue is currently under development. If you experience any
