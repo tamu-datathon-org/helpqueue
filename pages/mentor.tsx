@@ -55,7 +55,7 @@ export default function Home() {
                 <option defaultValue="unresolved" value="unresolved">
                   Active Tickets
                 </option>
-                <option value="all">All Unresolved Tickets</option>
+                <option value="all">Unresolved Tickets</option>
                 <option value="claimedunresolved">Claimed Tickets</option>
                 <option value="resolved">Resolved Tickets</option>
               </Select>
