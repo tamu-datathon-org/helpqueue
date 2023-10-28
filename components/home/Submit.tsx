@@ -20,7 +20,7 @@ export default function Submit(props: { user: User; ticket: Ticket }) {
   const { mutate } = useSWRConfig();
   const [submitLoading, setSubmitLoading] = useState(false);
 
-  const challengeOptions = ['TD Hospital Exploration', 'TD Pictionary Purge', 'TD Bots Race', 'TD Build Your Own', 'Marky Challenge', 'MLH Challenge', 'Miscellaneous'];
+  const challengeOptions = ['TD Hospital Exploration', 'TD Pictionary Purge', 'TD Bots Race', 'TD Build Your Own', 'Marky Social Media Post Approval', 'MLH Challenge', 'Miscellaneous'];
 
   if (isLoading || error) {
     return <Loading />;
