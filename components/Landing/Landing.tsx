@@ -9,7 +9,7 @@ const backgroundProps: CSS.Properties = {
 };
 
 const questionBearProps: CSS.Properties = {
-    backgroundImage: "url(../help/images/landing_img.png)",
+    backgroundImage: "url(../help/images/landing_img.svg)",
     backgroundRepeat: "no-repeat",
     backgroundSize: "cover",
     width: "500px",
