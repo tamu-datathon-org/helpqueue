@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>HelpR</title>
+        <title>Datathon Help Queue</title>
         <meta
           name="description"
           content="Online Mentorship Queue For Hackathon Participants"
