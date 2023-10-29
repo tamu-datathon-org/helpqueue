@@ -58,7 +58,7 @@ export default function InfoModal() {
             </p>
             <p className="my-4 text-gray-700">
               If you are a mentor/volunteer, please reach out to a Datathon organizer so they can help
-              get you situated.
+              get you situated. 
             </p>
           </ModalBody>
         </ModalContent>
