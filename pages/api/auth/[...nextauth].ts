@@ -1,5 +1,5 @@
 import NextAuth from 'next-auth';
-import Auth0 from "next-auth/providers/auth0";
+import GoogleProvider from 'next-auth/providers/google';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from '../../../lib/prisma';
 
@@ -10,10 +10,9 @@ export default NextAuth({
     strategy: 'jwt',
   },
   providers: [
-    Auth0({
-      clientId: process.env.AUTH_AUTH0_ID,
-      clientSecret: process.env.AUTH_AUTH0_SECRET,
-      issuer: process.env.AUTH_AUTH0_DOMAIN,
+    GoogleProvider({
+      clientId: process.env.GOOGLE_OAUTH_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_OAUTH_CLIENT_SECRET || '',
     }),
   ],
   callbacks: {

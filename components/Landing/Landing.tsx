@@ -33,13 +33,8 @@ export default function Landing() {
         Your go-to destination for assistance and inquiries.
       </p>
       <div className="flex relative justify-center items-center top-[10px]">
-        <a onClick={() => signIn("auth0", {}, {connection: "google-oauth2"})}
-           className="py-4 px-8 bg-blue-500 text-white font-bold rounded-xl shadow-xl cursor-pointer">
+        <a onClick={() => signIn("google")} className="py-4 px-8 bg-blue-500 text-white font-bold rounded-xl shadow-xl cursor-pointer">
           Log in with Google
-        </a>
-        <a onClick={() => signIn("auth0", {}, {connection: "github"})}
-           className="py-4 px-8 bg-blue-500 text-white font-bold rounded-xl shadow-xl cursor-pointer">
-          Log in with GitHub
         </a>
       </div>
     </div>
