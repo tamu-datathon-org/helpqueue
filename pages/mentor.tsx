@@ -15,7 +15,7 @@ import TicketStream from '../components/tickets/TicketStream';
 export default function Home() {
   const [filter, setFilter] = useState('');
   const [challengeFilter, setChallengeFilter] = useState('All Challenges');
-  const challengeOptions = ['Reveille\'s Riddles', 'Time-series', 'Web Scraping', 'Classification', 'Data Manipulation', 'Music Exploration', 'Miscellaneous'];
+  const challengeOptions = ['PushBattle', 'Connections', 'Roni\'s Analysis', 'SQL Murder Mystery', 'Rev\'s Hotel', 'Capital One', 'TAMIDS Challenge', 'Baker Hughes Downsampling Challenge'];
   const handleDropdownChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
