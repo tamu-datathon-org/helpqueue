@@ -13,7 +13,7 @@ import {Nullable} from "../lib/common";
 import Loading from "../components/common/Loading";
 
 export default function Home() {
-  const {data, error, isLoading} = useSWR("/help/api/users/me", fetcher, {refreshInterval: 5000});
+  const {data, error, isLoading} = useSWR("/api/users/me", fetcher, {refreshInterval: 5000});
 
   if (isLoading || error) {
     return <Loading/>;
