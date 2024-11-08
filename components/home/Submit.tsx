@@ -13,7 +13,7 @@ import { Ticket, User } from '@prisma/client';
 export default function Submit(props: { user: User; ticket: Ticket }) {
   const toast = useToast();
 
-  const { data, error, isLoading } = useSWR('/help/api/users/me', fetcher, {
+  const { data, error, isLoading } = useSWR('/api/users/me', fetcher, {
     refreshInterval: 5000,
   });
 
@@ -52,7 +52,7 @@ export default function Submit(props: { user: User; ticket: Ticket }) {
 
     await axios({
       method: 'post',
-      url: '/help/api/tickets/create',
+      url: '/api/tickets/create',
       data: {
         challenge: challengeValue,
         issue: issueValue,
@@ -61,7 +61,7 @@ export default function Submit(props: { user: User; ticket: Ticket }) {
       },
     })
       .then(async function () {
-        await mutate('/help/api/users/me');
+        await mutate('/api/users/me');
         setSubmitLoading(false);
         toast({
           title: 'Ticket Submitted',
@@ -93,13 +93,13 @@ export default function Submit(props: { user: User; ticket: Ticket }) {
     }
     await axios({
       method: 'post',
-      url: '/help/api/tickets/cancel',
+      url: '/api/tickets/cancel',
       data: {
         ticketId: props.ticket.id,
       },
     })
       .then(async function () {
-        await mutate('/help/api/users/me');
+        await mutate('/api/users/me');
       })
       .catch(function (error: Error) {
         toast({

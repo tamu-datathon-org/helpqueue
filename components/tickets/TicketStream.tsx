@@ -13,7 +13,7 @@ export default function TicketStream(props: {
     data: ticketsData,
     error: ticketError,
     isLoading: isTicketLoading,
-  } = useSWR(`/help/api/tickets/${props.filter || 'all'}`, fetcher, {
+  } = useSWR(`/api/tickets/${props.filter || 'all'}`, fetcher, {
     refreshInterval: 5000,
   });
 

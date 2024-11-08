@@ -9,7 +9,7 @@ import axios from "axios";
 export default function ClaimButton(props : {
   ticket: Ticket
 }) {
-  const {data, isLoading} = useSWR("/help/api/users/me", fetchData, {});
+  const {data, isLoading} = useSWR("/api/users/me", fetchData, {});
   const [claimLoading, setClaimLoading] = useState(false);
   const [unclaimLoading, setUnclaimLoading] = useState(false);
   const toast = useToast();
@@ -28,12 +28,12 @@ export default function ClaimButton(props : {
 
     await axios({
       method: "post",
-      url: `/help/api/tickets/${action}`,
+      url: `/api/tickets/${action}`,
       data: {
         ticketId: props.ticket.id
       }
     }).then(async function () {
-      await mutate("/help/api/tickets/all");
+      await mutate("/api/tickets/all");
     }).catch(function (error) {
       console.log(error);
       toast({title: "Error", status: "error", position: "bottom-right", duration: 3000, isClosable: true});

@@ -22,7 +22,7 @@ ADMIN VIEW:
 */
 
 export default function Home() {
-  const { data, error, isLoading } = useSWR('/help/api/users/all', fetcher, {});
+  const { data, error, isLoading } = useSWR('/api/users/all', fetcher, {});
   const [adminView, setAdminView] = useState('userTable');
 
   if (isLoading || error) {
@@ -78,7 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   });
 
-  
+
   if (!user?.admin) {
     return {
       redirect: {

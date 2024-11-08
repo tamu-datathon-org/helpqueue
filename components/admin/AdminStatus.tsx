@@ -12,14 +12,14 @@ export default function AdminStatus(props : {
   //role is either 'mentor' or 'admin'
   //currentRole is the current status of the role
   async function toggleStatus(role : string, currentRole : boolean) {
-    if (role != "mentor" && role != "admin") 
+    if (role != "mentor" && role != "admin")
       return;
-    
-    await axios.post(`/help/api/users/${role}toggle`, {
+
+    await axios.post(`/api/users/${role}toggle`, {
       id: props.user.id,
       currentRole: currentRole
     }).then(async function () {
-      await mutate("/help/api/users/all");
+      await mutate("/api/users/all");
       toast({
         title: "Success!",
         description: `Successfully updated ${props.user.name}'s ${role} status.`,
