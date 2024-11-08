@@ -57,7 +57,7 @@ export default function Navbar(props : NavProps) {
         </Link>)
       }
     </div>
-    <div onClick={() => signOut({callbackUrl: "/help"})} className="p-8 border h-12 w-12 bg-white border-gray-100 rounded-xl shadow-md">
+    <div onClick={() => signOut({callbackUrl: "/"})} className="p-8 border h-12 w-12 bg-white border-gray-100 rounded-xl shadow-md">
       <IoLogOutOutline className="scale-[1.75] -translate-y-2/4 -translate-x-1/3"/>
     </div>
   </div>);
