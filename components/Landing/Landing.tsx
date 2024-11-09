@@ -33,8 +33,7 @@ export default function Landing() {
         Your go-to destination for assistance and inquiries.
       </p>
       <div className="flex relative justify-center items-center top-[10px]">
-        <a onClick={(e) => {
-          e.preventDefault()
+        <a onClick={() => {
           signIn("google")}}
           className="py-4 px-8 bg-blue-500 text-white font-bold rounded-xl shadow-xl cursor-pointer">
           Log in with Google

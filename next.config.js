@@ -5,7 +5,7 @@
 const path = require('path'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 const defaultBasePath = '';
-const defaultFallbackUrl = 'https://helpqueue.tamudatathon.com/*';
+const defaultFallbackUrl = 'https://helpqueue.tamudatathon.com/:path*';
 
 const nextConfig = {
   sassOptions: {
