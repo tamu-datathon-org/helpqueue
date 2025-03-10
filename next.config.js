@@ -13,7 +13,7 @@ const nextConfig = {
   },
   env: {
     BASE_PATH: process.env.BASE_PATH || defaultBasePath,
-    DATABASE_URL: process.env.MONGODB_URI
+    DATABASE_URL: process.env.DATABASE_URL
   },
   basePath: process.env.BASE_PATH || defaultBasePath,
   compiler: {
