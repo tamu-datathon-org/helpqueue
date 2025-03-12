@@ -1,6 +1,8 @@
 import React from 'react';
-import { useDrag, useDrop, DndProvider, DropTargetMonitor, DragSourceMonitor } from 'react-dnd';
+import { useDrag, useDrop, DropTargetMonitor, DragSourceMonitor } from 'react-dnd';
+import { DndProvider as MultiDndProvider, TouchTransition } from 'react-dnd-multi-backend';
 import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
 import { HamburgerIcon } from '@chakra-ui/icons';
 
 interface PreferenceEditorProps {
@@ -81,11 +83,26 @@ const PreferenceEditorInternal: React.FC<PreferenceEditorProps> = ({ preferences
   );
 };
 
+const MultiBackendSettings = {
+  backends: [
+    {
+      id: 'html5',
+      backend: HTML5Backend,
+    },
+    {
+      id: 'touch',
+      backend: TouchBackend,
+      options: { enableMouseEvents: true },
+      transition: TouchTransition,
+    },
+  ],
+};
+
 const PreferenceEditor: React.FC<PreferenceEditorProps> = (props) => {
   return (
-    <DndProvider backend={HTML5Backend}>
+    <MultiDndProvider options={MultiBackendSettings}>
       <PreferenceEditorInternal {...props} />
-    </DndProvider>
+    </MultiDndProvider>
   );
 };
 
