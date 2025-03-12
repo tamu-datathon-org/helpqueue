@@ -101,7 +101,7 @@ export default function Home() {
                 </div>
             </div>
             
-            <TicketStream filter={filter} challengeFilter={challengeFilter} />
+            <TicketStream filter={filter} challengeFilter={challengeFilter} mentorPreferences={mentorPreferences} />
           </div>
         </div>
       </div>

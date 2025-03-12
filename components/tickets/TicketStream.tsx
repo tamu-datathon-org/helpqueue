@@ -8,6 +8,7 @@ import ClaimButton from '../mentor/ClaimButton';
 export default function TicketStream(props: {
   filter: string;
   challengeFilter: string;
+  mentorPreferences: string[];
 }) {
   const {
     data: ticketsData,
@@ -43,8 +44,16 @@ export default function TicketStream(props: {
     return false;
   });
 
+  const sortedTickets = filteredTickets.sort((a: Ticket, b: Ticket) => {
+    const indexA = props.mentorPreferences.indexOf(a.challenge);
+    const indexB = props.mentorPreferences.indexOf(b.challenge);
+    if (indexA === -1) return 1;
+    if (indexB === -1) return -1;
+    return indexA - indexB;
+  });
+
   const ticketList: JSX.Element[] = [];
-  filteredTickets.map((ticket: Ticket, index: number) => {
+  sortedTickets.forEach((ticket: Ticket, index: number) => {
     ticketList.push(
       <div
         key={index}
