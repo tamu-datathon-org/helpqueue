@@ -17,7 +17,7 @@ import PreferenceEditor from '../components/mentor/PreferenceEditor';
 export default function Home() {
   const [filter, setFilter] = useState('');
   const [challengeFilter, setChallengeFilter] = useState('All Challenges');
-  const challengeOptions = ['PushBattle', 'Connections', 'Roni\'s Analysis', 'SQL Murder Mystery', 'Rev\'s Hotel', 'Capital One', 'TAMIDS Challenge', 'Baker Hughes Downsampling Challenge'];
+  const challengeOptions = ['Cookie Regression', 'Ddakji Flip Prediction', 'Game Recruitment', 'Red Light Green Light Webscraping', 'Rev\'s Marbles', 'Voice Command Survival'];
   
   // load preferences from local storage
   const [mentorPreferences, setMentorPreferences] = useState<string[]>([]);
