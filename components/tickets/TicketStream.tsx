@@ -5,6 +5,14 @@ import { getTimeDifferenceString } from '../../lib/common';
 import { Ticket } from '@prisma/client';
 import ClaimButton from '../mentor/ClaimButton';
 
+const mentorGuidePaths: { [key: string]: string } = {
+  'Game Recruitment': '/MentorGuides/GameRecruitment.pdf',
+  VoiceCommandSurvival: '/MentorGuides/VoiceCommandSurvivalMentorGuide.pdf',
+  Ddjaki: '/MentorGuides/Ddjaki.pdf',
+  RevsMarbles: '/MentorGuides/RevsMarbles.pdf',
+  RedLightGreenLight: '/MentorGuides/RedLightGreenLight.pdf',
+  CookieRegression: '/MentorGuides/CookieRegression.pdf',
+};
 export default function TicketStream(props: {
   filter: string;
   challengeFilter: string;
@@ -45,6 +53,7 @@ export default function TicketStream(props: {
 
   const ticketList: JSX.Element[] = [];
   filteredTickets.map((ticket: Ticket, index: number) => {
+    const mentorGuidePath = mentorGuidePaths[ticket.challenge] || '#';
     ticketList.push(
       <div
         key={index}
@@ -62,6 +71,16 @@ export default function TicketStream(props: {
           </p>
           <p className="mt-2 text-sm">Located at: {ticket.location}</p>
           <p className="mt-2 text-sm">Challenge: {ticket.challenge}</p>
+          <p className="mt-2 text-sm">
+            <a
+              href={mentorGuidePath}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-500 underline"
+            >
+              Mentor Guide
+            </a>
+          </p>
         </div>
         <ClaimButton ticket={ticket} />
       </div>
