@@ -95,3 +95,9 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Challenge {
+  id            String  @id @default(auto()) @map("_id") @db.ObjectId
+  challenge_name String
+  mentor_guide   String
+}
