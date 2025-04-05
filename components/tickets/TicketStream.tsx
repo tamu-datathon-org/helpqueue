@@ -10,7 +10,7 @@ const mentorGuidePaths: { [key: string]: string } = {
   'Voice Command Survival':
     'https://docs.google.com/document/d/1XDsl1xZvXy-iiw646D48gxAIjat6BpvcggLPNXYIQVM/edit?usp=sharing',
   Ddjaki: '',
-  "Rev's Marbles": 'example.org',
+  "Rev's Marbles": '',
   'Red Light Green Light': '',
   'Cookie Regression': '',
 };
