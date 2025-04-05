@@ -64,6 +64,7 @@ export default function TicketStream(props: {
       (c: { challenge_name: string }) => c.challenge_name === ticket.challenge
     );
     const mentorGuidePath = challengeInfo?.mentor_guide;
+    const isValidMentorGuide = mentorGuidePath?.startsWith('https://');
     ticketList.push(
       <div
         key={index}
@@ -81,7 +82,7 @@ export default function TicketStream(props: {
           </p>
           <p className="mt-2 text-sm">Located at: {ticket.location}</p>
           <p className="mt-2 text-sm">Challenge: {ticket.challenge}</p>
-          {mentorGuidePath && (
+          {isValidMentorGuide && (
             <p className="mt-2 text-sm">
               <a
                 href={mentorGuidePath}
