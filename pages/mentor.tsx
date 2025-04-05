@@ -17,18 +17,32 @@ import PreferenceEditor from '../components/mentor/PreferenceEditor';
 export default function Home() {
   const [filter, setFilter] = useState('');
   const [challengeFilter, setChallengeFilter] = useState('All Challenges');
-  const challengeOptions = ['Cookie Regression', 'Ddakji Flip Prediction', 'Game Recruitment', 'Red Light Green Light Webscraping', 'Rev\'s Marbles', 'Voice Command Survival'];
-  
-  // load preferences from local storage
+  // const challengeOptions = ['Cookie Regression', 'Ddakji Flip Prediction', 'Game Recruitment', 'Red Light Green Light Webscraping', 'Rev\'s Marbles', 'Voice Command Survival'];
+  const [challengeOptions, setChallengeOptions] = useState<string[]>([]);
   const [mentorPreferences, setMentorPreferences] = useState<string[]>([]);
   const [showPreferences, setShowPreferences] = useState(false);
+
   useEffect(() => {
-    const storedPreferences = localStorage.getItem('mentorPreferences');
-    if (storedPreferences) {
-      setMentorPreferences(JSON.parse(storedPreferences));
-    } else {
-      setMentorPreferences(challengeOptions);
-    }
+    const fetchChallenges = async () => {
+      try {
+        const res = await fetch('/api/challenges');
+        const data = await res.json();
+        const names = data.map((c: { challenge_name: string }) => c.challenge_name);
+        setChallengeOptions(names);
+        const stored = localStorage.getItem('mentorPreferences');
+        const parsedStored = stored ? JSON.parse(stored) : null;
+        const needsUpdate = !parsedStored || parsedStored.length !== names.length || !names.every((name: string) => parsedStored.includes(name));
+        if (needsUpdate) {
+          localStorage.setItem('mentorPreferences', JSON.stringify(names));
+          setMentorPreferences(names);
+        } else {
+          setMentorPreferences(parsedStored);
+        }
+      } catch (err) {
+        console.error('Failed to fetch challenges:', err);
+      }
+    };
+    fetchChallenges();
   }, []);
 
   const handleDropdownChange = (
@@ -131,16 +145,16 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     },
   });
 
-  // if (!user?.mentor && !user?.admin) {
-  //   return {
-  //     redirect: {
-  //       destination: '/',
-  //       permanent: false,
-  //     },
-  //   };
-  // }
+  if (!user?.mentor && !user?.admin) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false,
+      },
+    };
+  }
 
-  return {
-    props: {},
+  return {  
+    props: {}, 
   };
 };

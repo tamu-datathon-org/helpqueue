@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Input, Select } from '@chakra-ui/react';
 import InfoModal from './InfoModal';
@@ -6,7 +6,6 @@ import Loading from '../common/Loading';
 import useSWR from 'swr';
 import { fetcher } from '../../lib/common';
 import { useToast } from '@chakra-ui/react';
-import { useState } from 'react';
 import { useSWRConfig } from 'swr';
 import { Ticket, User } from '@prisma/client';
 
@@ -20,7 +19,21 @@ export default function Submit(props: { user: User; ticket: Ticket }) {
   const { mutate } = useSWRConfig();
   const [submitLoading, setSubmitLoading] = useState(false);
 
-  const challengeOptions = ['Cookie Regression', 'Ddakji Flip Prediction', 'Game Recruitment', 'Red Light Green Light Webscraping', 'Rev\'s Marbles', 'Voice Command Survival'];
+  const [challengeOptions, setChallengeOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    const fetchChallenges = async () => {
+      try {
+        const res = await fetch('/api/challenges');
+        const data = await res.json();
+        const names = data.map((c: { challenge_name: string }) => c.challenge_name);
+        setChallengeOptions(names);
+      } catch (err) {
+        console.error('Failed to fetch challenges', err);
+      }
+    };
+    fetchChallenges();
+  }, []);
 
   if (isLoading || error) {
     return <Loading />;

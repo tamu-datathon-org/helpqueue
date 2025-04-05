@@ -18,7 +18,13 @@ export default function TicketStream(props: {
     refreshInterval: 5000,
   });
 
-  if (isTicketLoading) {
+  const {
+    data: challengeData,
+    error: challengeError,
+    isLoading: challengeLoading,
+  } = useSWR('/api/challenges', fetcher);
+
+  if (isTicketLoading || challengeLoading) {
     return (
       <div className="flex justify-center p-8 bg-white border border-gray-100 shadow-md rounded-xl my-8">
         <p className="text-xl font-bold">Loading...</p>
@@ -26,7 +32,7 @@ export default function TicketStream(props: {
     );
   }
 
-  if (ticketError) {
+  if (ticketError || challengeError) {
     return (
       <div className="flex justify-center p-8 bg-white border border-gray-100 shadow-md rounded-xl my-8">
         <p className="text-xl font-bold">Error!</p>
@@ -54,6 +60,10 @@ export default function TicketStream(props: {
 
   const ticketList: JSX.Element[] = [];
   sortedTickets.forEach((ticket: Ticket, index: number) => {
+    const challengeInfo = challengeData.find(
+      (c: { challenge_name: string }) => c.challenge_name === ticket.challenge
+    );
+    const mentorGuidePath = challengeInfo?.mentor_guide;
     ticketList.push(
       <div
         key={index}
@@ -71,6 +81,18 @@ export default function TicketStream(props: {
           </p>
           <p className="mt-2 text-sm">Located at: {ticket.location}</p>
           <p className="mt-2 text-sm">Challenge: {ticket.challenge}</p>
+          {mentorGuidePath && (
+            <p className="mt-2 text-sm">
+              <a
+                href={mentorGuidePath}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 underline"
+              >
+                Mentor Guide
+              </a>
+            </p>
+          )}
         </div>
         <ClaimButton ticket={ticket} />
       </div>
