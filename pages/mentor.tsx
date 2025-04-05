@@ -15,7 +15,15 @@ import TicketStream from '../components/tickets/TicketStream';
 export default function Home() {
   const [filter, setFilter] = useState('');
   const [challengeFilter, setChallengeFilter] = useState('All Challenges');
-  const challengeOptions = ['PushBattle', 'Connections', 'Roni\'s Analysis', 'SQL Murder Mystery', 'Rev\'s Hotel', 'Capital One', 'TAMIDS Challenge', 'Baker Hughes Downsampling Challenge'];
+  // const challengeOptions = ['PushBattle', 'Connections', 'Roni\'s Analysis', 'SQL Murder Mystery', 'Rev\'s Hotel', 'Capital One', 'TAMIDS Challenge', 'Baker Hughes Downsampling Challenge'];
+  const challengeOptions = [
+    'Voice Command Survival',
+    'Game Recruitment',
+    'Ddjaki',
+    "Rev's Marbles",
+    'Red Light Green Light',
+    'Cookie Regression',
+  ];
   const handleDropdownChange = (
     event: React.ChangeEvent<HTMLSelectElement>
   ) => {
@@ -39,10 +47,7 @@ export default function Home() {
           content="Online Mentorship Queue For Hackathon Participants"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link
-          rel="icon"
-          href="/favicon.ico"
-        />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className="h-full py-10">
         <div className="flex justify-center mt-8 mx-4 md:mt-24">

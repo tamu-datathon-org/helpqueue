@@ -6,12 +6,13 @@ import { Ticket } from '@prisma/client';
 import ClaimButton from '../mentor/ClaimButton';
 
 const mentorGuidePaths: { [key: string]: string } = {
-  'Game Recruitment': '/MentorGuides/GameRecruitment.pdf',
-  VoiceCommandSurvival: '/MentorGuides/VoiceCommandSurvivalMentorGuide.pdf',
-  Ddjaki: '/MentorGuides/Ddjaki.pdf',
-  RevsMarbles: '/MentorGuides/RevsMarbles.pdf',
-  RedLightGreenLight: '/MentorGuides/RedLightGreenLight.pdf',
-  CookieRegression: '/MentorGuides/CookieRegression.pdf',
+  'Game Recruitment': '',
+  'Voice Command Survival':
+    'https://docs.google.com/document/d/1XDsl1xZvXy-iiw646D48gxAIjat6BpvcggLPNXYIQVM/edit?usp=sharing',
+  Ddjaki: '',
+  "Rev's Marbles": 'example.org',
+  'Red Light Green Light': '',
+  'Cookie Regression': '',
 };
 export default function TicketStream(props: {
   filter: string;
